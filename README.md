@@ -287,6 +287,38 @@ walletConnector
   });
 ```
 
+### IW Send Transation
+
+```bash
+Supported coins: BTC, ETH, BCH, DASH, DOGE, LTC, ETC, NEO, GAS, ADA, ONT, ONG, BNB
+```
+
+```javascript
+// Draft IW Send Transaction Request
+const coin = 'eth' // the coin param must be: btc, eth, bch, dash, doge, ltc, etc, neo, gas, eos, ada, ont, ong, bnb
+const payload = {
+  params: [
+    {
+      from: "0xbc28Ea04101F03aA7a94C1379bc3AB32E65e62d3",
+      to: "0x89D24A7b4cCB1b6fAA2625Fe562bDd9A23260359",
+      value: 0.001 // the unit must be original, ex: ETH, BTC or something like that
+    }
+  ]
+};
+
+// Send Custom Request
+walletConnector
+  .iwSendTransaction(coin, payload)
+  .then(result => {
+    // Returns request result
+    console.log(result);
+  })
+  .catch(error => {
+    // Error returned when rejected
+    console.error(error);
+  });
+```
+
 ## For Wallets (Client SDK - react-native)
 
 ### Install
