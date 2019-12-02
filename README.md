@@ -295,14 +295,14 @@ Supported coins: BTC, ETH, BCH, DASH, DOGE, LTC, ETC, NEO, GAS, ADA, ONT, ONG, B
 
 ```javascript
 // Draft IW Send Transaction Request
-// The coin param must be: btc, eth, bch, dash, doge, ltc, etc, neo, gas, eos, ada, ont, ong, bnb
+// Coin param must be: 'btc', 'eth', 'bch', 'dash', 'doge', 'ltc', 'etc', 'neo', 'gas', 'eos', 'ada', 'ont', 'ong', 'bnb'
 const coin = 'eth';
 const payload = {
   params: [
     {
       from: "0xbc28Ea04101F03aA7a94C1379bc3AB32E65e62d3",
       to: "0x89D24A7b4cCB1b6fAA2625Fe562bDd9A23260359",
-      // The unit must be original, ex: ETH, BTC or something like that
+      // The value's unit must be original, ex: ETH, BTC or something like that
       value: 0.001
     }
   ]
@@ -329,7 +329,7 @@ Supported coins: BTC, ETH, BCH, DASH, DOGE, LTC, ETC, NEO, GAS, ADA, ONT, ONG, B
 
 ```javascript
 // Draft IW Get Account Request
-// Coin param must be: btc, eth, bch, dash, doge, ltc, etc, neo, gas, eos, ada, ont, ong, bnb
+// Coin param must be: 'btc', 'eth', 'bch', 'dash', 'doge', 'ltc', 'etc', 'neo', 'gas', 'eos', 'ada', 'ont', 'ong', 'bnb'
 const coin = 'eth';
 const options = {
   // Get wallet's name
@@ -357,10 +357,10 @@ Supported coins: BTC, ETH, BCH, DASH, DOGE, LTC, ETC, NEO, GAS, ADA, ONT, ONG, B
 
 ```javascript
 // Draft IW Sign Message Request
-// Coin param must be: btc, eth, bch, dash, doge, ltc, etc, neo, gas, eos, ada, ont, ong, bnb
+// Coin param must be: 'btc', 'eth', 'bch', 'dash', 'doge', 'ltc', 'etc', 'neo', 'gas', 'eos', 'ada', 'ont', 'ong', 'bnb'
 const coin = 'eth';
 const signMessage = 'Message will be signed';
-// The private key of this address will be use to sign message
+// Address's privatekey will be use to sign message
 const address = '0xbc28Ea04101F03aA7a94C1379bc3AB32E65e62d3';
 const msgParams = [address, signMessage];
 
