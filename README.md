@@ -377,6 +377,30 @@ walletConnector
   });
 ```
 
+### IW Send Raw By Coin
+
+```bash
+Supported coins: BTC, ETH, BCH, DASH, DOGE, LTC, ETC, NEO, GAS, ONT, ONG
+```
+
+```javascript
+// Draft IW Send Raw Request
+// Coin param must be: 'btc', 'eth', 'bch', 'dash', 'doge', 'ltc', 'etc', 'neo', 'gas', 'ont', 'ong'
+const coin = 'eth';
+
+// Send IW Send Raw Request
+walletConnector
+  .iwSendRaw(coin, {rawTx: 'raw_data'})
+  .then(result => {
+    // Returns request result
+    console.log(result);
+  })
+  .catch(error => {
+    // Error returned when rejected
+    console.error(error);
+  });
+```
+
 ## For Wallets (Client SDK - react-native)
 
 ### Install
