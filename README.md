@@ -287,7 +287,7 @@ walletConnector
   });
 ```
 
-### IW Send Transation
+### IW Send Transaction
 
 ```bash
 Supported coins: BTC, ETH, BCH, DASH, DOGE, LTC, ETC, NEO, GAS, ADA, ONT, ONG, BNB
