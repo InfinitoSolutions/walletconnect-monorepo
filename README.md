@@ -295,20 +295,78 @@ Supported coins: BTC, ETH, BCH, DASH, DOGE, LTC, ETC, NEO, GAS, ADA, ONT, ONG, B
 
 ```javascript
 // Draft IW Send Transaction Request
-const coin = 'eth' // the coin param must be: btc, eth, bch, dash, doge, ltc, etc, neo, gas, eos, ada, ont, ong, bnb
+// The coin param must be: btc, eth, bch, dash, doge, ltc, etc, neo, gas, eos, ada, ont, ong, bnb
+const coin = 'eth';
 const payload = {
   params: [
     {
       from: "0xbc28Ea04101F03aA7a94C1379bc3AB32E65e62d3",
       to: "0x89D24A7b4cCB1b6fAA2625Fe562bDd9A23260359",
-      value: 0.001 // the unit must be original, ex: ETH, BTC or something like that
+      // The unit must be original, ex: ETH, BTC or something like that
+      value: 0.001
     }
   ]
 };
 
-// Send Custom Request
+// Send IW Transaction Request
 walletConnector
   .iwSendTransaction(coin, payload)
+  .then(result => {
+    // Returns request result
+    console.log(result);
+  })
+  .catch(error => {
+    // Error returned when rejected
+    console.error(error);
+  });
+```
+
+### IW Get Account By Coin
+
+```bash
+Supported coins: BTC, ETH, BCH, DASH, DOGE, LTC, ETC, NEO, GAS, ADA, ONT, ONG, BNB
+```
+
+```javascript
+// Draft IW Get Account Request
+// Coin param must be: btc, eth, bch, dash, doge, ltc, etc, neo, gas, eos, ada, ont, ong, bnb
+const coin = 'eth';
+const options = {
+  // Get wallet's name
+  useWalletName: true
+};
+
+// Send IW Get Account Request
+walletConnector
+  .iwGetAccounts(coin, options)
+  .then(result => {
+    // Returns request result
+    console.log(result);
+  })
+  .catch(error => {
+    // Error returned when rejected
+    console.error(error);
+  });
+```
+
+### IW Sign Message By Coin
+
+```bash
+Supported coins: BTC, ETH, BCH, DASH, DOGE, LTC, ETC, NEO, GAS, ADA, ONT, ONG, BNB
+```
+
+```javascript
+// Draft IW Sign Message Request
+// Coin param must be: btc, eth, bch, dash, doge, ltc, etc, neo, gas, eos, ada, ont, ong, bnb
+const coin = 'eth';
+const signMessage = 'Message will be signed';
+// The private key of this address will be use to sign message
+const address = '0xbc28Ea04101F03aA7a94C1379bc3AB32E65e62d3';
+const msgParams = [address, signMessage];
+
+// Send IW Sign Message Request
+walletConnector
+  .iwSignMessage(coin, msgParams)
   .then(result => {
     // Returns request result
     console.log(result);
