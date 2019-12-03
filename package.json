@@ -25,7 +25,7 @@
     "clean:all": "npm run clean && npm run clean:node_modules && npm run clean:package_lock && npm run clean:example",
     "lint": "tslint packages/*/src/**/*.ts",
     "zip": "node scripts/zip.js",
-    "publish": "lerna publish --no-verify-access",
+    "publish": "lerna publish",
     "bump-version": "lerna version",
     "publish:beta": "lerna exec -- npm publish",
     "routine": "npm run clean:all && npm run bootstrap && npm run check-packages && npm run zip",

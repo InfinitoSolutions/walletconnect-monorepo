@@ -664,6 +664,33 @@ class Connector implements IConnector {
     }
   }
 
+  /**
+   * IW invoke custom function
+   * @param method
+   * @param platform
+   * @param data
+   */
+  public async iwCustomFunction (method: string, platform: string, data: any) {
+    if (!this._connected) {
+      throw new Error(ERROR_SESSION_DISCONNECTED)
+    }
+
+    const request = this._formatRequest({
+      method,
+      params: [{
+        platform,
+        params: data
+      }]
+    })
+
+    try {
+      const result = await this._sendCallRequest(request)
+      return result
+    } catch (error) {
+      throw error
+    }
+  }
+
   public async signTransaction (tx: ITxData) {
     if (!this._connected) {
       throw new Error(ERROR_SESSION_DISCONNECTED)

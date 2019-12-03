@@ -333,7 +333,10 @@ Supported coins: BTC, ETH, BCH, DASH, DOGE, LTC, ETC, NEO, GAS, ADA, ONT, ONG, B
 const coin = 'eth';
 const options = {
   // Get wallet's name
-  useWalletName: true
+  useWalletName: true,
+  // Return address of current wallet
+  // Let it empty to get all
+  currentWalletOnly: true
 };
 
 // Send IW Get Account Request
@@ -391,6 +394,26 @@ const coin = 'eth';
 // Send IW Send Raw Request
 walletConnector
   .iwSendRaw(coin, {rawTx: 'raw_data'})
+  .then(result => {
+    // Returns request result
+    console.log(result);
+  })
+  .catch(error => {
+    // Error returned when rejected
+    console.error(error);
+  });
+```
+
+### IW Invoke Custom Function
+
+```bash
+Support special case from DApp
+```
+
+```javascript
+// Send IW Custom Function Request
+walletConnector
+  .iwCustomFunction('method_name', 'neo', { address: '' })
   .then(result => {
     // Returns request result
     console.log(result);

@@ -1,6 +1,6 @@
 {
   "name": "@walletconnect/react-native",
-  "version": "1.0.0-beta.40",
+  "version": "1.0.0-beta.39",
   "description": "React Native SDK for WalletConnect",
   "scripts": {
     "clean": "rm -rf lib",
@@ -56,7 +56,7 @@
     "webpack-cli": "^3.2.1"
   },
   "dependencies": {
-    "@walletconnect/core": "^1.0.0-beta.40",
+    "@walletconnect/core": "^1.0.0-beta.39",
     "@walletconnect/types": "^1.0.0-beta.39",
     "@walletconnect/utils": "^1.0.0-beta.39"
   },
