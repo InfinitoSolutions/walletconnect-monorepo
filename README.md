@@ -287,6 +287,142 @@ walletConnector
   });
 ```
 
+### IW Send Transaction
+
+```bash
+Supported coins: BTC, ETH, BCH, DASH, DOGE, LTC, ETC, NEO, GAS, ADA, ONT, ONG, BNB
+```
+
+```javascript
+// Draft IW Send Transaction Request
+// Coin param must be: 'btc', 'eth', 'bch', 'dash', 'doge', 'ltc', 'etc', 'neo', 'gas', 'eos', 'ada', 'ont', 'ong', 'bnb'
+const coin = 'eth';
+const payload = {
+  params: [
+    {
+      from: "0xbc28Ea04101F03aA7a94C1379bc3AB32E65e62d3",
+      to: "0x89D24A7b4cCB1b6fAA2625Fe562bDd9A23260359",
+      // The value's unit must be original, ex: ETH, BTC or something like that
+      value: 0.001
+    }
+  ]
+};
+
+// Send IW Transaction Request
+walletConnector
+  .iwSendTransaction(coin, payload)
+  .then(result => {
+    // Returns request result
+    console.log(result);
+  })
+  .catch(error => {
+    // Error returned when rejected
+    console.error(error);
+  });
+```
+
+### IW Get Account By Coin
+
+```bash
+Supported coins: BTC, ETH, BCH, DASH, DOGE, LTC, ETC, NEO, GAS, ADA, ONT, ONG, BNB
+```
+
+```javascript
+// Draft IW Get Account Request
+// Coin param must be: 'btc', 'eth', 'bch', 'dash', 'doge', 'ltc', 'etc', 'neo', 'gas', 'eos', 'ada', 'ont', 'ong', 'bnb'
+const coin = 'eth';
+// Set useWalletName = true to get wallet's name
+// Set allWallet = true to get all wallet account, by default only response current wallet account
+const options = {
+  useWalletName: true,
+  allWallet: true
+};
+
+// Send IW Get Account Request
+walletConnector
+  .iwGetAccounts(coin, options)
+  .then(result => {
+    // Returns request result
+    console.log(result);
+  })
+  .catch(error => {
+    // Error returned when rejected
+    console.error(error);
+  });
+```
+
+### IW Sign Message By Coin
+
+```bash
+Supported coins: BTC, ETH, BCH, DASH, DOGE, LTC, ETC, NEO, GAS, ADA, ONT, ONG, BNB
+```
+
+```javascript
+// Draft IW Sign Message Request
+// Coin param must be: 'btc', 'eth', 'bch', 'dash', 'doge', 'ltc', 'etc', 'neo', 'gas', 'eos', 'ada', 'ont', 'ong', 'bnb'
+const coin = 'eth';
+const signMessage = 'Message will be signed';
+// Address's privatekey will be use to sign message
+const address = '0xbc28Ea04101F03aA7a94C1379bc3AB32E65e62d3';
+const msgParams = [address, signMessage];
+
+// Send IW Sign Message Request
+walletConnector
+  .iwSignMessage(coin, msgParams)
+  .then(result => {
+    // Returns request result
+    console.log(result);
+  })
+  .catch(error => {
+    // Error returned when rejected
+    console.error(error);
+  });
+```
+
+### IW Send Raw By Coin
+
+```bash
+Supported coins: BTC, ETH, BCH, DASH, DOGE, LTC, ETC, NEO, GAS, ONT, ONG
+```
+
+```javascript
+// Draft IW Send Raw Request
+// Coin param must be: 'btc', 'eth', 'bch', 'dash', 'doge', 'ltc', 'etc', 'neo', 'gas', 'ont', 'ong'
+const coin = 'eth';
+
+// Send IW Send Raw Request
+walletConnector
+  .iwSendRaw(coin, {rawTx: 'raw_data'})
+  .then(result => {
+    // Returns request result
+    console.log(result);
+  })
+  .catch(error => {
+    // Error returned when rejected
+    console.error(error);
+  });
+```
+
+### IW Invoke Custom Function
+
+```bash
+Support special case from DApp
+```
+
+```javascript
+// Send IW Custom Function Request
+walletConnector
+  .iwCustomFunction('method_name', 'neo', { address: '' })
+  .then(result => {
+    // Returns request result
+    console.log(result);
+  })
+  .catch(error => {
+    // Error returned when rejected
+    console.error(error);
+  });
+```
+
 ## For Wallets (Client SDK - react-native)
 
 ### Install

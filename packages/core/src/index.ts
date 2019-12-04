@@ -561,6 +561,136 @@ class Connector implements IConnector {
     }
   }
 
+  /**
+   * IW send transaction
+   * @param platform
+   * @param params
+   */
+  public async iwSendTransaction (platform: string, params: any) {
+    if (!this._connected) {
+      throw new Error(ERROR_SESSION_DISCONNECTED)
+    }
+
+    const request = this._formatRequest({
+      method: 'iw_sendTransaction',
+      params: [{
+        platform,
+        params: params
+      }]
+    })
+
+    try {
+      const result = await this._sendCallRequest(request)
+      return result
+    } catch (error) {
+      throw error
+    }
+  }
+
+  /**
+   * IW get wallet address by platform
+   * @param platform
+   * @param options
+   */
+  public async iwGetAccounts (platform: string, options: any) {
+    if (!this._connected) {
+      throw new Error('Session currently disconnected')
+    }
+
+    const request = this._formatRequest({
+      method: 'iw_getAccounts',
+      params: [{
+        platform,
+        options
+      }]
+    })
+
+    try {
+      return await this._sendCallRequest(request)
+    } catch (error) {
+      throw error
+    }
+  }
+
+  /**
+   * IW sign message by platform
+   * @param platform
+   * @param data
+   */
+  public async iwSignMessage (platform: string, data: any) {
+    if (!this._connected) {
+      throw new Error(ERROR_SESSION_DISCONNECTED)
+    }
+
+    const request = this._formatRequest({
+      method: 'iw_sign',
+      params: [{
+        platform,
+        params: data
+      }]
+    })
+
+    try {
+      const result = await this._sendCallRequest(request)
+      return result
+    } catch (error) {
+      throw error
+    }
+  }
+
+  /**
+   * IW Send Raw by platform
+   * @param platform
+   * @param data
+   */
+  public async iwSendRaw (platform: string, data: any) {
+    if (!this._connected) {
+      throw new Error(ERROR_SESSION_DISCONNECTED)
+    }
+
+    const request = this._formatRequest({
+      method: 'iw_sendRaw',
+      params: [{
+        platform,
+        params: data
+      }]
+    })
+
+    try {
+      const result = await this._sendCallRequest(request)
+      return result
+    } catch (error) {
+      throw error
+    }
+  }
+
+  /**
+   * IW invoke custom function
+   * @param method
+   * @param platform
+   * @param data
+   */
+  public async iwCustomFunction (method: string, platform: string, data: any) {
+    if (!this._connected) {
+      throw new Error(ERROR_SESSION_DISCONNECTED)
+    }
+
+    const request = this._formatRequest({
+      method,
+      params: [{
+        platform,
+        params: data
+      }]
+    })
+
+    try {
+      const result = await this._sendCallRequest(request)
+      return result
+    } catch (error) {
+      throw error
+    }
+  }
+
   public async signTransaction (tx: ITxData) {
     if (!this._connected) {
       throw new Error(ERROR_SESSION_DISCONNECTED)
