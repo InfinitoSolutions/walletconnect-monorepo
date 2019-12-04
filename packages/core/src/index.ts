@@ -566,7 +566,7 @@ class Connector implements IConnector {
    * @param platform
    * @param params
    */
-  public async iwSendTransaction (platform: string ,params: any) {
+  public async iwSendTransaction (platform: string, params: any) {
     if (!this._connected) {
       throw new Error(ERROR_SESSION_DISCONNECTED)
     }
@@ -592,7 +592,7 @@ class Connector implements IConnector {
    * @param platform
    * @param options
    */
-  public async iwGetAccounts (platform: string , options: any) {
+  public async iwGetAccounts (platform: string, options: any) {
     if (!this._connected) {
       throw new Error('Session currently disconnected')
     }
