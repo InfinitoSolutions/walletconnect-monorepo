@@ -331,12 +331,11 @@ Supported coins: BTC, ETH, BCH, DASH, DOGE, LTC, ETC, NEO, GAS, ADA, ONT, ONG, B
 // Draft IW Get Account Request
 // Coin param must be: 'btc', 'eth', 'bch', 'dash', 'doge', 'ltc', 'etc', 'neo', 'gas', 'eos', 'ada', 'ont', 'ong', 'bnb'
 const coin = 'eth';
+// Set useWalletName = true to get wallet's name
+// Set allWallet = true to get all wallet account, by default only response current wallet account
 const options = {
-  // Get wallet's name
   useWalletName: true,
-  // Return address of current wallet
-  // Let it empty to get all
-  currentWalletOnly: true
+  allWallet: true
 };
 
 // Send IW Get Account Request
